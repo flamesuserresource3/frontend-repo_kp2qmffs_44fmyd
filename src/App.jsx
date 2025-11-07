@@ -1,28 +1,49 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import About from './components/About';
+import Contact from './components/Contact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Navbar() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-slate-950/60 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#" className="text-white">
+          <span className="font-black tracking-tight">BRO</span>
+          <span className="font-light text-white/70">—AHMAD</span>
+        </a>
+        <nav className="hidden gap-6 text-sm text-white/80 sm:flex">
+          <a href="#projects" className="hover:text-white">Projects</a>
+          <a href="#about" className="hover:text-white">About</a>
+          <a href="#contact" className="hover:text-white">Contact</a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-slate-950/60">
+      <div className="mx-auto max-w-7xl px-6 py-8 text-center text-sm text-white/60">
+        © {new Date().getFullYear()} Bro Ahmad Syaf — Built with strategy, systems, and taste.
+      </div>
+    </footer>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-slate-950">
+      <Navbar />
+      <main>
+        <Hero />
+        <div id="about">
+          <About />
+        </div>
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
